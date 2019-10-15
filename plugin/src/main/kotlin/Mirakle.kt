@@ -85,12 +85,12 @@ class Mirakle : Plugin<Gradle> {
 
                     standardOutput = modifyOutputStream(
                             standardOutput,
-                            "${config.remoteFolder}/${project.name}",
+                            "${config.remoteFolder.replace("~/", "")}/${project.name}",
                             project.rootDir.path
                     )
                     errorOutput = modifyOutputStream(
                             errorOutput,
-                            "${config.remoteFolder}/${project.name}",
+                            "${config.remoteFolder.replace("~/", "")}/${project.name}",
                             project.rootDir.path
                     )
                 }.mustRunAfter(upload) as Exec
